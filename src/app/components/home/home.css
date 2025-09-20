@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  color: #4a5568;
+  margin-bottom: 10px;
+  font-size: 2.5em;
+}
+
+.header p {
+  color: #718096;
+  font-size: 1.2em;
+}
+
+.btn-voltar {
+  background: #4299e1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+  background: #3182ce;
+  transform: translateY(-2px);
+}
+
+.auth-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.auth-section h2 {
+  color: #e53e3e;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.auth-section input {
+  width: 300px;
+  padding: 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.btn-auth {
+  background: #48bb78;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-auth:hover {
+  background: #38a169;
+  transform: translateY(-2px);
+}
+
+.erro-msg {
+  color: #e53e3e;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.admin-content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.stat-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.stat-card span {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.usuarios-lista h2 {
+  color: #4a5568;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.btn-refresh {
+  background: #ed8936;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-refresh:hover {
+  background: #dd6b20;
+  transform: translateY(-2px);
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background: #f7fafc;
+  font-weight: bold;
+  color: #4a5568;
+}
+
+tr:hover {
+  background: #f7fafc;
+}
+
+.nenhum-usuario {
+  text-align: center;
+  padding: 40px;
+  color: #718096;
+  font-size: 1.2em;
+}
+
+.actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-export {
+  background: #38b2ac;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-export:hover {
+  background: #319795;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background: #c53030;
+  transform: translateY(-2px);
+}
+
+.btn-remover {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-remover:hover {
+  background: #c53030;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .auth-section input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+  }
+}

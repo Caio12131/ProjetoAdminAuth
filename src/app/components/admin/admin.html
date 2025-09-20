@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="header">
+    <h1>👥 Lista de Usuários Cadastrados</h1>
+    <p>Total de usuários: {{ usuariosFiltrados.length }}</p>
+  </div>
+
+  <!-- Added filter section with search and age filters -->
+  <div class="filters-section">
+    <h3>🔍 Filtros</h3>
+    
+    <div class="filter-row">
+      <div class="filter-group">
+        <label>Nome:</label>
+        <input 
+          type="text" 
+          placeholder="Buscar por nome..." 
+          [(ngModel)]="filtroNome" 
+          (input)="filtrarUsuarios()"
+          class="filter-input"
+        />
+      </div>
+      
+      <div class="filter-group">
+        <label>Idade mínima:</label>
+        <input 
+          type="number" 
+          placeholder="Min" 
+          [(ngModel)]="filtroIdadeMin" 
+          (input)="filtrarUsuarios()"
+          class="filter-input age-input"
+        />
+      </div>
+      
+      <div class="filter-group">
+        <label>Idade máxima:</label>
+        <input 
+          type="number" 
+          placeholder="Max" 
+          [(ngModel)]="filtroIdadeMax" 
+          (input)="filtrarUsuarios()"
+          class="filter-input age-input"
+        />
+      </div>
+    </div>
+
+    <div class="filter-actions">
+      <button (click)="limparFiltros()" class="btn-clear">
+        🗑️ Limpar Filtros
+      </button>
+      <button (click)="atualizarLista()" class="btn-refresh">
+        🔄 Atualizar Lista
+      </button>
+    </div>
+  </div>
+
+  <!-- Improved user list display with better styling -->
+  <div class="users-section">
+    <div *ngIf="usuariosFiltrados.length === 0" class="no-users">
+      <p>📭 Nenhum usuário encontrado com os filtros aplicados.</p>
+    </div>
+
+    <div *ngIf="usuariosFiltrados.length > 0" class="users-grid">
+      <div *ngFor="let usuario of usuariosFiltrados; let i = index" class="user-card">
+        <div class="user-info">
+          <div class="user-name">{{ usuario.nome }}</div>
+          <div class="user-age">{{ usuario.idade }} anos</div>
+        </div>
+        <div class="user-number">#{{ i + 1 }}</div>
+      </div>
+    </div>
+  </div>
+</div>
