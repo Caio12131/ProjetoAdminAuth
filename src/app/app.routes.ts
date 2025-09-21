@@ -3,6 +3,7 @@ import { Home } from './components/home/home';
 import { App } from './app';
 import { JogosComponent } from './components/jogos/jogos';
 import { AdminComponent } from './components/admin/admin';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
 {
@@ -20,5 +21,7 @@ export const routes: Routes = [
 {
     path: "admin",
     component: AdminComponent
-}
+},
+{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
+
 ];
