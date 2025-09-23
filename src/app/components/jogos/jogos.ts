@@ -1,35 +1,45 @@
-import { Component } from "@angular/core"
-import { RouterLink } from "@angular/router"
-import { FormsModule } from "@angular/forms"
-import { CommonModule } from "@angular/common" // <-- necessário para ngIf e ngFor
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router'; // 👈 IMPORTANTE
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: "app-jogos",
+  selector: 'app-jogos',
   standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule], // <-- adicione CommonModule
-  templateUrl: "./jogos.html",
-  styleUrls: ["./jogos.css"], // Updated to use the new CSS file
+  imports: [CommonModule, FormsModule, RouterLink], // 👈 habilita routerLink
+  templateUrl: './jogos.html',
+  styleUrls: ['./jogos.css']
 })
 export class JogosComponent {
-  nome = ""
-  idade: number | null = null
-  usuarios: { nome: string; idade: number }[] = []
+  nome: string = '';
+  idade: number | null = null;
+  usuarios: any[] = [];
 
-  adicionarUsuario() {
-    if (this.nome && this.idade != null) {
-      const novo = { nome: this.nome, idade: this.idade }
-      const salvos = JSON.parse(localStorage.getItem("usuarios") || "[]")
-      salvos.push(novo)
-      localStorage.setItem("usuarios", JSON.stringify(salvos))
-      this.nome = ""
-      this.idade = null
-      alert("Usuário adicionado!")
-    } else {
-      alert("Preencha nome e idade.")
-    }
+  constructor(private userService: UserService) {}
+
+adicionarUsuario() {
+  if (this.nome && this.idade) {
+    const usuario = {
+      nome: this.nome,
+      idade: this.idade,
+      createdAt: new Date().toISOString() // salva a data atual como string ISO
+    };
+
+    this.userService.adicionar(usuario).then(() => {
+      this.nome = '';
+      this.idade = null;
+      this.listarUsuarios();
+    });
+  } else {
+    alert('Preencha todos os campos!');
   }
+}
+
 
   listarUsuarios() {
-    this.usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]")
+    this.userService.listar().subscribe((data: any) => {
+      this.usuarios = data;
+    });
   }
 }

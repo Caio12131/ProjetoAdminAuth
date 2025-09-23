@@ -69,5 +69,21 @@
       </div>
     </div>
   </div>
+<div class="ano-navigation" style="display:flex; justify-content:center; align-items:center; margin-bottom:10px;">
+  <button (click)="anoAnterior()">⬅️ Ano Anterior</button>
+  <span style="margin: 0 15px; font-weight:bold;">{{ anoAtual }}</span>
+  <button (click)="proximoAno()">Ano Seguinte ➡️</button>
 </div>
+
+<div style="display: block; width: 600px; margin: auto;">
+  <canvas baseChart 
+          [data]="chartData" 
+          [options]="chartOptions" 
+          [type]="'bar'">
+  </canvas>
+</div>
+
+
+</div>
+
 <canvas id="usuariosChart"></canvas>

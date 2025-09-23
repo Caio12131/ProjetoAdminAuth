@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminComponent } from './admin';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { Admin } from './admin';
-
-describe('Admin', () => {
-  let component: Admin;
-  let fixture: ComponentFixture<Admin>;
+describe('AdminComponent', () => {
+  let component: AdminComponent;
+  let fixture: ComponentFixture<AdminComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Admin]
+      imports: [AdminComponent],
+      schemas: [NO_ERRORS_SCHEMA] // ignora elementos desconhecidos como <canvas baseChart>
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Admin);
+    fixture = TestBed.createComponent(AdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,3 +22,4 @@ describe('Admin', () => {
     expect(component).toBeTruthy();
   });
 });
+      
