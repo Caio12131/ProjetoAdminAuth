@@ -1,27 +1,36 @@
-import { Routes } from '@angular/router';
-import { Home } from './components/home/home';
-import { App } from './app';
-import { JogosComponent } from './components/jogos/jogos';
-import { AdminComponent } from './components/admin/admin';
-import { AuthGuard } from './guards/auth.guard';
+import type { Routes } from "@angular/router"
+import { JogosComponent } from "./components/jogos/jogos"
+import { AdminComponent } from "./components/admin/admin"
+import { LoginComponent } from "./components/login/login"
+import { RegisterComponent } from "./components/register/register"
+import { AuthGuard } from "./guards/auth.guard"
 
 export const routes: Routes = [
-{
-    path: "",
-    component: JogosComponent
-},
-{
-    path: "home",
-    component: Home
-},
-{
+  {
+    path: "login",
+    component: LoginComponent,
+  },
+  {
+    path: "register",
+    component: RegisterComponent,
+  },
+  {
     path: "jogos",
-    component: JogosComponent
-},
-{
+    component: JogosComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: "admin",
-    component: AdminComponent
-},
-{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
-
-];
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "",
+    redirectTo: "/login",
+    pathMatch: "full",
+  },
+  {
+    path: "**",
+    redirectTo: "/login",
+  },
+]

@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="header-content">
+    <div class="header-left">
+      <h1 class="header-title">Sistema de Cadastro</h1>
+    </div>
+    
+    <nav class="header-nav" *ngIf="currentUser">
+      <a routerLink="/jogos" routerLinkActive="active" class="nav-link">
+        Cadastrar Usuários
+      </a>
+      <a routerLink="/admin" routerLinkActive="active" class="nav-link">
+        Administração
+      </a>
+    </nav>
+
+    <div class="header-right">
+      <div *ngIf="currentUser" class="user-info">
+        <span class="user-email">{{ currentUser.email }}</span>
+        <button (click)="logout()" class="logout-btn">
+          Sair
+        </button>
+      </div>
+      
+      <div *ngIf="!currentUser" class="auth-links">
+        <a routerLink="/login" class="auth-link">Entrar</a>
+        <a routerLink="/register" class="auth-link register">Cadastrar</a>
+      </div>
+    </div>
+  </div>
+</header>

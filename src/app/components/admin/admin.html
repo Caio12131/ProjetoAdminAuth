@@ -1,7 +1,16 @@
 <div class="container">
   <div class="header">
-    <h1>👥 Lista de Usuários Cadastrados</h1>
-    <p>Total de usuários: {{ usuariosFiltrados.length }}</p>
+    <h1>👥 Painel Administrativo</h1>
+    <!-- Updated description to reflect authentication -->
+    <p>Total de usuários: {{ usuariosFiltrados.length }} | Acesso restrito a usuários autenticados</p>
+  </div>
+
+  <!-- Added authentication status -->
+  <div class="auth-info" *ngIf="currentUser">
+    <div class="admin-badge">
+      <span class="badge-icon">🔐</span>
+      <span>Administrador: {{ currentUser.email }}</span>
+    </div>
   </div>
 
   <!-- Added filter section with search and age filters -->
@@ -64,8 +73,22 @@
         <div class="user-info">
           <div class="user-name">{{ usuario.nome }}</div>
           <div class="user-age">{{ usuario.idade }} anos</div>
+          <!-- Added information about who created the user -->
+          <div class="user-creator" *ngIf="usuario.createdBy">
+            <small>Cadastrado por: {{ usuario.createdBy }}</small>
+          </div>
         </div>
-        <div class="user-number">#{{ i + 1 }}</div>
+        <div class="user-actions">
+          <div class="user-number">#{{ i + 1 }}</div>
+          <!-- Added delete button -->
+          <button 
+            (click)="deletarUsuario(usuario.id)" 
+            class="delete-btn"
+            title="Deletar usuário"
+          >
+            🗑️
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -83,7 +106,4 @@
   </canvas>
 </div>
 
-
 </div>
-
-<canvas id="usuariosChart"></canvas>

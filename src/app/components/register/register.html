@@ -1,0 +1,69 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h1 class="auth-title">Criar Conta</h1>
+      <p class="auth-subtitle">Cadastre-se para gerenciar usuários</p>
+    </div>
+
+    <form (ngSubmit)="onRegister()" class="auth-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Digite seu email"
+          class="form-input"
+          [disabled]="loading"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Digite sua senha (mín. 6 caracteres)"
+          class="form-input"
+          [disabled]="loading"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar Senha</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirme sua senha"
+          class="form-input"
+          [disabled]="loading"
+          required
+        />
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <button
+        type="submit"
+        class="auth-button"
+        [disabled]="loading"
+      >
+        <span *ngIf="loading">Criando conta...</span>
+        <span *ngIf="!loading">Criar Conta</span>
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Já tem uma conta? <a routerLink="/login">Entrar</a></p>
+    </div>
+  </div>
+</div>

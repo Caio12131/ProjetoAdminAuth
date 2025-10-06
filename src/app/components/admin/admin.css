@@ -1,79 +1,71 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 20px;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
 
 .header h1 {
-  margin: 0 0 10px 0;
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
 }
 
 .header p {
-  margin: 0;
-  font-size: 1.1rem;
-  opacity: 0.9;
+  color: #666;
+  font-size: 16px;
 }
 
 .filters-section {
   background: white;
-  padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
   margin-bottom: 30px;
-  border: 1px solid #e1e5e9;
 }
 
 .filters-section h3 {
-  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
   color: #333;
-  font-size: 1.3rem;
+  margin-bottom: 20px;
 }
 
 .filter-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 20px;
-  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
 .filter-group {
-  flex: 1;
-  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .filter-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #555;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
 }
 
 .filter-input {
-  width: 100%;
-  padding: 12px;
+  padding: 10px 12px;
   border: 2px solid #e1e5e9;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease;
 }
 
 .filter-input:focus {
   outline: none;
   border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .age-input {
@@ -82,54 +74,76 @@
 
 .filter-actions {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .btn-clear,
 .btn-refresh {
-  padding: 12px 20px;
+  padding: 10px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-clear {
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #f8f9fa;
+  color: #666;
+  border: 1px solid #e1e5e9;
 }
 
 .btn-clear:hover {
-  background-color: #ff5252;
-  transform: translateY(-2px);
+  background-color: #e9ecef;
 }
 
 .btn-refresh {
-  background-color: #4ecdc4;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
 }
 
 .btn-refresh:hover {
-  background-color: #26d0ce;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+
+/* Added styles for admin authentication info */
+.auth-info {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.badge-icon {
+  font-size: 16px;
 }
 
 .users-section {
   background: white;
-  padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e1e5e9;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 30px;
 }
 
 .no-users {
   text-align: center;
   padding: 40px;
   color: #666;
-  font-size: 1.1rem;
 }
 
 .users-grid {
@@ -139,19 +153,17 @@
 }
 
 .user-card {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #f8f9fa;
+  border-radius: 8px;
   padding: 20px;
-  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
-  border: 1px solid #e1e5e9;
+  transition: transform 0.2s ease;
 }
 
 .user-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .user-info {
@@ -159,44 +171,95 @@
 }
 
 .user-name {
-  font-size: 1.1rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
 .user-age {
   color: #666;
-  font-size: 0.9rem;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* Added styles for creator information */
+.user-creator {
+  color: #888;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* Updated user actions to include delete button */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .user-number {
-  background: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 20px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 14px;
+}
+
+.delete-btn {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #ff3742;
+  transform: scale(1.05);
+}
+
+.ano-navigation {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.ano-navigation button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ano-navigation button:hover {
+  transform: translateY(-1px);
+}
+
+.ano-navigation span {
+  font-size: 18px;
+  color: #333;
 }
 
 @media (max-width: 768px) {
   .filter-row {
-    flex-direction: column;
-  }
-
-  .filter-group {
-    min-width: auto;
+    grid-template-columns: 1fr;
   }
 
   .users-grid {
     grid-template-columns: 1fr;
   }
 
-  .header h1 {
-    font-size: 1.8rem;
+  .filter-actions {
+    flex-direction: column;
   }
 }
